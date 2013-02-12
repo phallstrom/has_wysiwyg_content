@@ -69,24 +69,5 @@ class TestHasWysiwygContent < ActiveSupport::TestCase
     assert_equal %w[content], Widget.wysiwyg_attributes
   end
 
-  #
-  # Testing the helper...
-  #
-
-  def test_parsed_content_encodes_emails
-    assert_no_match /philip@pjkh.com/, wysiwyg(@widget.content)
-  end
-
-  def test_parsed_content_converts_valid_substitutions
-    @my_var = Object.new
-    def @my_var.foo; "VALUE_OF_MY_VAR"; end
-    assert_no_match /\{\{some_var.foo\}\}/, wysiwyg(@widget.content, :some_var => @my_var)
-    assert_match /VALUE_OF_MY_VAR/, wysiwyg(@widget.content, :some_var => @my_var)
-  end
-
-  def test_parsed_content_does_not_convert_nonexistent_substitutions
-    assert_match /\{\{invalid.foo\}\}/, wysiwyg(@widget.content)
-  end
-
 end
 
