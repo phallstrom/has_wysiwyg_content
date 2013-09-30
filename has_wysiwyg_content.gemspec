@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{}
   gem.summary       = %q{}
   gem.homepage      = "https://github.com/phallstrom/has_wysiwyg_content"
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
